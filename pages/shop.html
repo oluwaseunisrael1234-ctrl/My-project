@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Velora Bags</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="image/banner/shop-banner.jpg"></a>
+        <div class="#">
+            <nav id="navbar">
+                <ul>
+                     <li><a href="../home.html">Home</a></li>
+                    <li><a class="active" href="pages/shop.html">Shop</a></li>
+                    <li><a href="../pages/about.html">About Us</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+                <form class="search-box">
+                    <input type="search" placeholder="Search for bags..." aria-label="Search">
+                    <!--<i class="fa fa-search"></i>-->
+                </form>
+                <div class=" header-icon">
+                    <a  href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href=""><i class="fa fa-user"></i></i></a>
+                </div>
+                
+            </nav>
+        </div>
+    </section>
+   <section>
+        <div class="cnt-hero">
+            <h1>Contact Us</h1>
+        </div>
+    </section>
+  <!-- ================= SHOP LAYOUT ================= -->
+  <main class="shop-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="shop-sidebar">
+      <h3>Categories</h3>
+      <ul class="category-list">
+        <li><button data-category="all">All Bags</button></li>
+        <li><button data-category="handbag">Hand Bags</button></li>
+        <li><button data-category="backpack">Backpacks</button></li>
+        <li><button data-category="travel">Travel Bags</button></li>
+        <li><button data-category="travel">Laptop Bags</button></li>
+        <li><button data-category="travel">cross body Bags</button></li>
+      </ul>
+
+      <h3>Filter by Price</h3>
+      <input type="range" id="priceRange" min="0" max="50000" value="50000">
+    </aside>
+
+    <!-- ===== PRODUCTS SECTION ===== -->
+    <section class="shop-products">
+
+      <!-- Sorting -->
+      <div class="shop-toolbar">
+        <span>Showing products</span>
+        <select id="sortSelect">
+          <option value="latest">Sort by Latest</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+      </div>
+      
+
+  <!-- Products Grid -->
+  <div class="products-grid" id="productsGrid">
+        <article class="product-card" data-category="handbag">
+          <img src="../image/schoolbag/sb2.jpg">
+          <h4>Luxury Handbag</h4>
+          <p class="price">₦25,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Leather Backpack</h4>
+          <p class="price">₦18,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="travel">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Travel Duffel Bag</h4>
+          <p class="price">₦35,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="handbag">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Classic Tote Bag</h4>
+          <p class="price">₦20,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Urban Backpack</h4>
+          <p class="price">₦22,000</p>
+          <button>Add to Cart</button>
+        </article>
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Urban Backpack</h4>
+          <p class="price">₦22,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Urban Backpack</h4>
+          <p class="price">₦22,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Urban Backpack</h4>
+          <p class="price">₦22,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Urban Backpack</h4>
+          <p class="price">₦22,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-category="backpack">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Urban Backpack</h4>
+          <p class="price">₦22,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+
+        <article class="product-card" data-category="travel">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Weekend Travel Bag</h4>
+          <p class="price">₦40,000</p>
+          <button>Add to Cart</button>
+        </article>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button id="prevPage">Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextPage">Next</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <section class="c-margin2" id="footer">
+        <footer>
+            <div class="footer-container">
+                <div class="foot-cont">
+                    <h1>logo -Velora Bags</h1>
+                    
+                    <p>Our brand is dedicated to creating stylish and functional bags <br> that fit seamlessly into modern life. From elegant everyday <br>handbags to durable travel and work bags, we focus on thoughtful <br>design, quality craftsmanship, and timeless appeal. <br>Every bag is made to elevate your look while keeping your essentials <br>organized and secure.</p>
+                </div>
+                <div class="foot-cont">
+                <h1>Navigations</h1>
+                <ul>
+                    <li><a href="pages/home.html">Home</a></li>
+                    <li><a href="pages/shop.html">Shop</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+                </div>
+                <div class="foot-cont">
+                <h1>Quick Links</h1>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                   <li> <a href="pages/shop.html">Shop</a></li>
+                    <li><a href="">Order</a></li>
+                    <li><a href="pages/contact.html">Contact Us</a></li>
+                </ul>
+                </div>
+                <div class="foot-cont">
+                <h1>Servics</h1>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="#">Block</a></li>
+                    <li><a href="#">404 Us</a></li>
+                </ul>
+                </div>
+            </div>
+            <div class="cont-details">
+                <div class="details">
+                    <a href="#"><p><i class="fa-solid fa-location-dot"></i>Nigeria, Ondo State</p></a>
+                </div>
+                <div class="details">
+                    <a href="#"><p><i class="fa-solid fa-phone"></i>+234 081-320-303-45</p></a>
+                </div>
+                 <div class="details">
+                    <a href="#"><p><i class="fa-solid fa-envelope"></i>oluwaseun1234@gmail.com</p></a>
+                </div>
+
+               
+              
+           
+             <div class="details">
+                    <i class="fa-brands fa-square-facebook"></i>
+                    <i class="fa-brands fa-square-x-twitter"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                    <i class="fa-brands fa-square-whatsapp"></i>
+                </div>
+                 </div>
+             <hr>
+            <div class="reserved">
+                <p>© 2026 Velora Bags. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </section>
+
+    
+ 
+
+  <!-- ================= SCRIPT ================= -->
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const products = document.querySelectorAll(".product-card");
+  const productsPerPage = 8;
+
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  const pageInfo = document.getElementById("pageInfo");
+
+  let currentPage = 1;
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
+  function showProducts(page) {
+    const start = (page - 1) * productsPerPage;
+    const end = start + productsPerPage;
+
+    products.forEach((product, index) => {
+      if (index >= start && index < end) {
+        product.style.display = "";      // ✅ GRID SAFE
+      } else {
+        product.style.display = "none";
+      }
+    });
+
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+  }
+
+  prevBtn.addEventListener("click", function () {
+    if (currentPage > 1) {
+      currentPage--;
+      showProducts(currentPage);
+    }
+  });
+
+  nextBtn.addEventListener("click", function () {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showProducts(currentPage);
+    }
+  });
+
+  // Initial Load
+  showProducts(currentPage);
+
+});
+
+
+   </script>
+  </body>
+</html>

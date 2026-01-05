@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora Bags | WhatsApp Shop</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+body{background:#f4f4f4}
+
+/* HEADER */
+header{
+  background:#075e54;
+  color:#fff;
+  padding:1rem;
+}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.cart-icon{
+  position:relative;
+  cursor:pointer;
+}
+.cart-count{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:#25d366;
+  color:#fff;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+}
+
+/* LAYOUT */
+main{
+  max-width:1200px;
+  margin:2rem auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1.5rem;
+  padding:0 1rem;
+}
+
+/* PRODUCT */
+.product{
+  background:#fff;
+  padding:1rem;
+  border-radius:10px;
+}
+.product img{width:100%;border-radius:8px}
+.product h4{margin:.5rem 0}
+.product p{font-size:.9rem;color:#555}
+.product .price{font-weight:bold;margin:.5rem 0}
+.product-actions{
+  display:flex;
+  gap:.5rem;
+}
+.product-actions input{
+  width:60px;
+  padding:.4rem;
+}
+.product-actions button{
+  flex:1;
+  background:#25d366;
+  color:#fff;
+  border:none;
+  padding:.5rem;
+  border-radius:6px;
+}
+
+/* CART MODAL */
+.cart-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:none;
+  justify-content:flex-end;
+}
+.cart{
+  background:#fff;
+  width:350px;
+  padding:1rem;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.cart h3{margin-bottom:1rem}
+.cart-items{flex:1;overflow:auto}
+.cart-item{
+  border-bottom:1px solid #ddd;
+  padding:.5rem 0;
+}
+.cart-item small{color:#666}
+.cart-item-actions{
+  display:flex;
+  justify-content:space-between;
+  margin-top:.3rem;
+}
+.cart-footer{
+  border-top:1px solid #ddd;
+  padding-top:1rem;
+}
+.cart-footer button{
+  width:100%;
+  background:#25d366;
+  color:#fff;
+  padding:.7rem;
+  border:none;
+  border-radius:6px;
+}
+.close-cart{
+  cursor:pointer;
+  color:red;
+  font-size:14px;
+  text-align:right;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h2>Velora Bags</h2>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </div>
+</header>
+
+<main id="products"></main>
+
+<!-- CART -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart">
+    <div class="close-cart" onclick="toggleCart()">Close ✖</div>
+    <h3>Your Cart</h3>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <p><strong>Total:</strong> ₦<span id="cartTotal">0</span></p>
+      <button onclick="orderWhatsApp()">Order via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* PRODUCT DATA */
+const PRODUCTS = [
+  {id:1,name:"Luxury Handbag",price:25000,desc:"Premium leather handbag"},
+  {id:2,name:"Leather Backpack",price:18000,desc:"Durable everyday backpack"},
+  {id:3,name:"Travel Duffel Bag",price:35000,desc:"Spacious travel bag"},
+  {id:4,name:"Classic Tote Bag",price:20000,desc:"Elegant everyday tote"}
+];
+
+const cart = [];
+
+/* RENDER PRODUCTS */
+const productsEl = document.getElementById("products");
+PRODUCTS.forEach(p=>{
+  productsEl.innerHTML += `
+    <div class="product">
+      <img src="https://via.placeholder.com/300">
+      <h4>${p.name}</h4>
+      <p>${p.desc}</p>
+      <p class="price">₦${p.price.toLocaleString()}</p>
+      <div class="product-actions">
+        <input type="number" min="1" value="1" id="qty-${p.id}">
+        <button onclick="addToCart(${p.id})">Add</button>
+      </div>
+    </div>
+  `;
+});
+
+/* CART FUNCTIONS */
+function addToCart(id){
+  const qty = +document.getElementById(`qty-${id}`).value;
+  const product = PRODUCTS.find(p=>p.id===id);
+  const item = cart.find(i=>i.id===id);
+
+  if(item) item.qty += qty;
+  else cart.push({...product,qty});
+
+  updateCart();
+}
+
+function updateCart(){
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(i=>{
+    total += i.price * i.qty;
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <strong>${i.name}</strong>
+        <small>${i.desc}</small>
+        <p>₦${i.price.toLocaleString()} × ${i.qty}</p>
+        <div class="cart-item-actions">
+          <button onclick="changeQty(${i.id},1)">+</button>
+          <button onclick="changeQty(${i.id},-1)">-</button>
+          <button onclick="removeItem(${i.id})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("cartTotal").textContent = total.toLocaleString();
+  document.getElementById("cartCount").textContent =
+    cart.reduce((s,i)=>s+i.qty,0);
+}
+
+function changeQty(id,val){
+  const item = cart.find(i=>i.id===id);
+  item.qty += val;
+  if(item.qty<=0) removeItem(id);
+  updateCart();
+}
+
+function removeItem(id){
+  const index = cart.findIndex(i=>i.id===id);
+  cart.splice(index,1);
+  updateCart();
+}
+
+function toggleCart(){
+  document.getElementById("cartModal").style.display =
+    document.getElementById("cartModal").style.display==="flex"?"none":"flex";
+}
+
+/* WHATSAPP ORDER */
+function orderWhatsApp(){
+  let message = "Hello, I want to order:\n\n";
+  cart.forEach(i=>{
+    message += `• ${i.name}\n  ${i.desc}\n  ₦${i.price.toLocaleString()} × ${i.qty}\n\n`;
+  });
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  message += `Total: ₦${total.toLocaleString()}`;
+
+  window.open(`https://wa.me/234XXXXXXXXXX?text=${encodeURIComponent(message)}`);
+}
+</script>
+
+</body>
+</html>
