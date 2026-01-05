@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f6f6f6;
+  margin:0;
+}
+
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+}
+
+h1{
+  margin-bottom:20px;
+}
+
+.cart-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
+}
+
+.cart-item{
+  display:flex;
+  gap:15px;
+  background:#fff;
+  padding:15px;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+.cart-item img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.details h3{
+  margin:0;
+}
+
+.details p{
+  margin:5px 0;
+  color:#555;
+  font-size:14px;
+}
+
+.meta{
+  font-size:13px;
+  color:#777;
+}
+
+.quantity{
+  margin-top:10px;
+}
+
+.quantity input{
+  width:60px;
+  padding:6px;
+}
+
+.remove{
+  color:red;
+  cursor:pointer;
+  font-size:14px;
+  margin-top:8px;
+  display:inline-block;
+}
+
+.summary{
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+}
+
+.summary p{
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+}
+
+.checkout-btn{
+  width:100%;
+  padding:15px;
+  background:#25D366;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.checkout-btn:hover{
+  background:#1ebe5d;
+}
+
+@media(max-width:768px){
+  .cart-layout{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Your Cart</h1>
+
+<div class="cart-layout">
+
+<!-- CART ITEMS -->
+<div id="cartItems"></div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <h2>Order Summary</h2>
+  <p><span>Subtotal</span><span id="subtotal">₦0</span></p>
+  <p><span>Delivery</span><span>₦2,000</span></p>
+  <hr>
+  <p><strong>Total</strong><strong id="total">₦0</strong></p>
+
+  <a href="order.html">
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </a>
+</div>
+
+</div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cartItems = document.getElementById("cartItems");
+let subtotalEl = document.getElementById("subtotal");
+let totalEl = document.getElementById("total");
+
+function renderCart() {
+  cartItems.innerHTML = "";
+  let subtotal = 0;
+
+  if(cart.length === 0){
+    cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    subtotalEl.innerText = "₦0";
+    totalEl.innerText = "₦0";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    let itemTotal = item.price * item.quantity;
+    subtotal += itemTotal;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}">
+        <div class="details">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <div class="meta">
+            Color: ${item.color} | Size: ${item.size}
+          </div>
+          <p>₦${item.price.toLocaleString()}</p>
+
+          <div class="quantity">
+            Qty:
+            <input type="number" min="1" value="${item.quantity}"
+              onchange="updateQty(${index}, this.value)">
+          </div>
+
+          <strong>Item Total: ₦${itemTotal.toLocaleString()}</strong><br>
+          <span class="remove" onclick="removeItem(${index})">Remove</span>
+        </div>
+      </div>
+    `;
+  });
+
+  subtotalEl.innerText = "₦" + subtotal.toLocaleString();
+  totalEl.innerText = "₦" + (subtotal + 2000).toLocaleString();
+}
+
+function updateQty(index, qty){
+  cart[index].quantity = parseInt(qty);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>

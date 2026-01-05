@@ -23,8 +23,8 @@
                     <!--<i class="fa fa-search"></i>-->
                 </form>
                 <div class=" header-icon">
-                    <a  href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href=""><i class="fa fa-user"></i></i></a>
+                    <a  href="cart.html" ><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href=""><i class="fa fa-user"></i></a>
                 </div>
                 
             </nav>
@@ -46,8 +46,8 @@
         <li><button data-category="handbag">Hand Bags</button></li>
         <li><button data-category="backpack">Backpacks</button></li>
         <li><button data-category="travel">Travel Bags</button></li>
-        <li><button data-category="travel">Laptop Bags</button></li>
-        <li><button data-category="travel">cross body Bags</button></li>
+        <li><button data-category="laptop">Laptop Bags</button></li>
+        <li><button data-category="crossbody">cross body Bags</button></li>
       </ul>
 
       <h3>Filter by Price</h3>
@@ -70,98 +70,187 @@
 
   <!-- Products Grid -->
   <div class="products-grid" id="productsGrid">
-        <article class="product-card" data-category="handbag">
+        <article class="product-card" data-id="1" data-category="handbag">
           <img src="../image/schoolbag/sb2.jpg">
           <h4>Luxury Handbag</h4>
           <p class="price">₦25,000</p>
-          <button>Add to Cart</button>
+    <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
         </article>
 
-        <article class="product-card" data-category="backpack">
+        <article class="product-card" data-id="2" data-category="backpack">
            <img src="../image/schoolbag/sb2.jpg">
           <h4>Leather Backpack</h4>
           <p class="price">₦18,000</p>
-          <button>Add to Cart</button>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
         </article>
 
-        <article class="product-card" data-category="travel">
+        <article class="product-card" data-id="3" data-category="travel">
            <img src="../image/schoolbag/sb2.jpg">
           <h4>Travel Duffel Bag</h4>
           <p class="price">₦35,000</p>
-          <button>Add to Cart</button>
-        </article>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
 
-        <article class="product-card" data-category="handbag">
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
+        </article>
+         <article class="product-card" data-id="4" data-category="handbag">
            <img src="../image/schoolbag/sb2.jpg">
           <h4>Classic Tote Bag</h4>
           <p class="price">₦20,000</p>
-          <button>Add to Cart</button>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
         </article>
 
-        <article class="product-card" data-category="backpack">
+         <article class="product-card" data-id="4" data-category="handbag">
            <img src="../image/schoolbag/sb2.jpg">
-          <h4>Urban Backpack</h4>
-          <p class="price">₦22,000</p>
-          <button>Add to Cart</button>
+          <h4>Classic Tote Bag</h4>
+          <p class="price">₦20,000</p>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
         </article>
-        <article class="product-card" data-category="backpack">
+
+
+        <article class="product-card" data-id="4" data-category="handbag">
+           <article class="product-card" data-id="4" data-category="handbag">
            <img src="../image/schoolbag/sb2.jpg">
-          <h4>Urban Backpack</h4>
-          <p class="price">₦22,000</p>
-          <button>Add to Cart</button>
+          <h4>Classic Tote Bag</h4>
+          <p class="price">₦20,000</p>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
         </article>
 
-        <article class="product-card" data-category="backpack">
            <img src="../image/schoolbag/sb2.jpg">
-          <h4>Urban Backpack</h4>
-          <p class="price">₦22,000</p>
-          <button>Add to Cart</button>
+          <h4>Classic Tote Bag</h4>
+          <p class="price">₦20,000</p>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
         </article>
 
-        <article class="product-card" data-category="backpack">
-           <img src="../image/schoolbag/sb2.jpg">
-          <h4>Urban Backpack</h4>
-          <p class="price">₦22,000</p>
-          <button>Add to Cart</button>
-        </article>
+  </div>
 
-        <article class="product-card" data-category="backpack">
-           <img src="../image/schoolbag/sb2.jpg">
-          <h4>Urban Backpack</h4>
-          <p class="price">₦22,000</p>
-          <button>Add to Cart</button>
-        </article>
+  <!-- Pagination -->
+  <div class="pagination">
+    <button id="prevPage">Previous</button>
+    <span id="pageInfo">Page 1</span>
+    <button id="nextPage">Next</button>
+  </div>
 
-        <article class="product-card" data-category="backpack">
-           <img src="../image/schoolbag/sb2.jpg">
-          <h4>Urban Backpack</h4>
-          <p class="price">₦22,000</p>
-          <button>Add to Cart</button>
-        </article>
+</section>
 
-
-        <article class="product-card" data-category="travel">
-           <img src="../image/schoolbag/sb2.jpg">
-          <h4>Weekend Travel Bag</h4>
-          <p class="price">₦40,000</p>
-          <button>Add to Cart</button>
-        </article>
-
-      </div>
-
-      <!-- Pagination -->
-      <div class="pagination">
-        <button id="prevPage">Previous</button>
-        <span id="pageInfo">Page 1</span>
-        <button id="nextPage">Next</button>
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <section class="c-margin2" id="footer">
+</main>
+    <section class="c-margin2" id="footer">
         <footer>
             <div class="footer-container">
                 <div class="foot-cont">
@@ -225,15 +314,43 @@
         </footer>
     </section>
 
-    
- 
+<!-- ================= SCRIPT ================= -->
 
-  <!-- ================= SCRIPT ================= -->
-   <script>
+<script>
+function addToCartFromCard(btn){
+  const card = btn.closest(".product-card");
+
+  const product = {
+    id: card.dataset.id,
+    name: card.querySelector("h4").innerText,
+    price: parseInt(card.querySelector(".price").innerText.replace(/[₦,]/g,'')),
+    image: card.querySelector("img").src,
+    color: card.querySelector("select[name='color']").value,
+    size: card.querySelector("select[name='size']").value,
+    quantity: parseInt(card.querySelector("input[name='qty']").value)
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existing = cart.find(item =>
+    item.id === product.id &&
+    item.color === product.color &&
+    item.size === product.size
+  );
+
+  if(existing){
+    existing.quantity += product.quantity;
+  } else {
+    cart.push(product);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Product added to cart");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-
   const products = document.querySelectorAll(".product-card");
-  const productsPerPage = 8;
+  const productsPerPage = 6;
 
   const prevBtn = document.getElementById("prevPage");
   const nextBtn = document.getElementById("nextPage");
@@ -248,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     products.forEach((product, index) => {
       if (index >= start && index < end) {
-        product.style.display = "";      // ✅ GRID SAFE
+        product.style.display = "";      
       } else {
         product.style.display = "none";
       }
@@ -274,12 +391,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Initial Load
   showProducts(currentPage);
-
 });
-
-
-   </script>
-  </body>
+</script>
+</body>
 </html>
