@@ -126,3 +126,34 @@ prevBtn.addEventListener("click", () => {
    INIT
 ================================ */
 displayProducts();
+
+
+
+  let menuBtn = document.getElementById("menuBtn");
+let mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+    const dropBtn = document.querySelector(".drop-btn");
+const dropdown = document.querySelector(".dropdown");
+
+
+    dropBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  dropdown.classList.toggle("open");
+});
+});
+
+
+
+
+  const seeMore = document.querySelector(".see-more");
+  const text = document.querySelector(".footer-text");
+
+  seeMore.addEventListener("click", () => {
+    text.classList.toggle("expanded");
+    seeMore.textContent = text.classList.contains("expanded")
+      ? "See less"
+      : "See more";
+  });
+

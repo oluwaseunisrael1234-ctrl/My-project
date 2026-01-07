@@ -10,6 +10,7 @@
 <body>
     <section id="header">
         <a href="#"><img src="image/banner/shop-banner.jpg"></a>
+
         <div class="#">
             <nav id="navbar">
                 <ul>
@@ -29,6 +30,16 @@
                 
             </nav>
         </div>
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="home.html">Home</a>
+            <a href="../pages/shop.html">Shop</a>
+            <a href="../pages/about.html">About</a>
+            <a href="../pages/contact.html">Contact</a>
+        </div>
+        
+
+         
     </section>
     <section id="hero">
         <div class="hero-text">
@@ -93,16 +104,7 @@
                     </div>
                 </div>
             </div>
-            <div class="view">
-                <div class="view-img">
-                    <img src="image/schoolbag/sb7.png">
-                    <div class="view-more">
-                        <h3>schoolbag</h3>
-                        <a href="#">View in Shop</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            
     </section>
     <section class="c-margin2" id="c-margin2">
         <h1>Top Products</h1>
@@ -251,7 +253,8 @@
                 <div class="foot-cont">
                     <h1>logo -Velora Bags</h1>
                     
-                    <p>Our brand is dedicated to creating stylish and functional bags <br> that fit seamlessly into modern life. From elegant everyday <br>handbags to durable travel and work bags, we focus on thoughtful <br>design, quality craftsmanship, and timeless appeal. <br>Every bag is made to elevate your look while keeping your essentials <br>organized and secure.</p>
+                    <p class="footer-text">Our brand is dedicated to creating stylish and functional bags <br> that fit seamlessly into modern life. From elegant everyday <br>handbags to durable travel and work bags, we focus on thoughtful <br>design, quality craftsmanship, and timeless appeal. <br>Every bag is made to elevate your look while keeping your essentials <br>organized and secure.</p>
+                <span class="see-more">See more</span>
                 </div>
                 <div class="foot-cont">
                 <h1>Navigations</h1>
@@ -309,6 +312,20 @@
         </footer>
     </section>
     
-    <script src="../script.js"></script>
+    <script src="../script.js">
+    // Footer See More/Less Functionality
+  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  const footerText = document.getElementById("footerText");
+
+  seeMoreBtn.addEventListener("click", () => {
+    footerText.classList.toggle("expanded");
+
+    seeMoreBtn.textContent = footerText.classList.contains("expanded")
+      ? "See less"
+      : "See more";
+  });
+
+
+    </script>
 </body>
 </html>

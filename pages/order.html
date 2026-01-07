@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velora Bags - Your cart</title>
+<title>Velora Bags - Checkout | Your Store</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
 
 <style>
 body{
   font-family: Arial, sans-serif;
-  background:#f6f6f6;
   margin:0;
+  background:#f6f6f6;
 }
 
 .container{
@@ -25,73 +24,62 @@ h1{
   margin-bottom:20px;
 }
 
-.cart-layout{
+.checkout{
   display:grid;
   grid-template-columns:2fr 1fr;
   gap:20px;
 }
 
-.cart-item{
-  display:flex;
-  gap:15px;
-  background:#fff;
-  padding:15px;
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-.cart-item img{
-  width:120px;
-  height:120px;
-  object-fit:cover;
-  border-radius:6px;
-}
-
-.details h3{
-  margin:0;
-}
-
-.details p{
-  margin:5px 0;
-  color:#555;
-  font-size:14px;
-}
-
-.meta{
-  font-size:13px;
-  color:#777;
-}
-
-.quantity{
-  margin-top:10px;
-}
-
-.quantity input{
-  width:60px;
-  padding:6px;
-}
-
-.remove{
-  color:red;
-  cursor:pointer;
-  font-size:14px;
-  margin-top:8px;
-  display:inline-block;
-}
-
-.summary{
+/* CARD */
+.card{
   background:#fff;
   padding:20px;
   border-radius:8px;
 }
 
+/* FORM */
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+textarea{
+  resize:none;
+}
+
+/* ORDER ITEMS */
+.order-item{
+  display:flex;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.order-item img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.order-details{
+  font-size:14px;
+}
+
+.order-details strong{
+  display:block;
+}
+
+/* SUMMARY */
 .summary p{
   display:flex;
   justify-content:space-between;
   margin:10px 0;
 }
 
-.checkout-btn{
+.place-order{
   width:100%;
   padding:15px;
   background:#25D366;
@@ -102,12 +90,12 @@ h1{
   cursor:pointer;
 }
 
-.checkout-btn:hover{
+.place-order:hover{
   background:#1ebe5d;
 }
 
 @media(max-width:768px){
-  .cart-layout{
+  .checkout{
     grid-template-columns:1fr;
   }
 }
@@ -117,29 +105,39 @@ h1{
 <body>
 
 <div class="container">
-<h1>Your Cart</h1>
+<h1>Checkout</h1>
 
-<div class="cart-layout">
+<div class="checkout">
 
-<!-- CART ITEMS -->
-<div id="cartItems"></div>
+<!-- CUSTOMER DETAILS -->
+<div class="card">
+  <h2>Customer Information</h2>
 
-<!-- SUMMARY -->
-<div class="summary">
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+  <input type="text" id="address" placeholder="Delivery Address" required>
+  <textarea id="note" placeholder="Order note (optional)"></textarea>
+
+  <button class="place-order" onclick="placeOrder()">
+    Place Order via WhatsApp
+  </button>
+</div>
+
+<!-- ORDER SUMMARY -->
+<div class="card summary">
   <h2>Order Summary</h2>
+
+  <div id="orderItems"></div>
+
+  <hr>
+
   <p><span>Subtotal</span><span id="subtotal">₦0</span></p>
   <p><span>Delivery</span><span>₦2,000</span></p>
-  <hr>
   <p><strong>Total</strong><strong id="total">₦0</strong></p>
-
-  <a href="order.html">
-    <button class="checkout-btn">Proceed to Checkout</button>
-  </a>
 </div>
 
 </div>
 </div>
-
     <section class="c-margin2" id="footer">
         <footer>
             <div class="footer-container">
@@ -207,44 +205,31 @@ h1{
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let cartItems = document.getElementById("cartItems");
+let orderItems = document.getElementById("orderItems");
 let subtotalEl = document.getElementById("subtotal");
 let totalEl = document.getElementById("total");
 
-function renderCart() {
-  cartItems.innerHTML = "";
+function renderOrderSummary(){
   let subtotal = 0;
+  orderItems.innerHTML = "";
 
   if(cart.length === 0){
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-    subtotalEl.innerText = "₦0";
-    totalEl.innerText = "₦0";
+    orderItems.innerHTML = "<p>Your cart is empty.</p>";
     return;
   }
 
-  cart.forEach((item, index) => {
+  cart.forEach(item => {
     let itemTotal = item.price * item.quantity;
     subtotal += itemTotal;
 
-    cartItems.innerHTML += `
-      <div class="cart-item">
+    orderItems.innerHTML += `
+      <div class="order-item">
         <img src="${item.image}">
-        <div class="details">
-          <h3>${item.name}</h3>
-          <p>${item.description}</p>
-          <div class="meta">
-            Color: ${item.color} | Size: ${item.size}
-          </div>
-          <p>₦${item.price.toLocaleString()}</p>
-
-          <div class="quantity">
-            Qty:
-            <input type="number" min="1" value="${item.quantity}"
-              onchange="updateQty(${index}, this.value)">
-          </div>
-
-          <strong>Item Total: ₦${itemTotal.toLocaleString()}</strong><br>
-          <span class="remove" onclick="removeItem(${index})">Remove</span>
+        <div class="order-details">
+          <strong>${item.name}</strong>
+          ${item.color} | ${item.size}<br>
+          Qty: ${item.quantity}<br>
+          ₦${item.price.toLocaleString()} each
         </div>
       </div>
     `;
@@ -254,19 +239,53 @@ function renderCart() {
   totalEl.innerText = "₦" + (subtotal + 2000).toLocaleString();
 }
 
-function updateQty(index, qty){
-  cart[index].quantity = parseInt(qty);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
+function placeOrder(){
+  let name = document.getElementById("name").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let address = document.getElementById("address").value.trim();
+  let note = document.getElementById("note").value.trim();
+
+  if(!name || !phone || !address){
+    alert("Please fill in all required fields");
+    return;
+  }
+
+  let message = `🛒 *NEW ORDER* %0A%0A
+👤 Name: ${name}%0A
+📞 Phone: ${phone}%0A
+📍 Address: ${address}%0A%0A
+📦 *Order Details:*%0A`;
+
+  let subtotal = 0;
+
+  cart.forEach((item, i) => {
+    let itemTotal = item.price * item.quantity;
+    subtotal += itemTotal;
+
+    message += `%0A${i+1}. ${item.name}%0A
+• Color: ${item.color}%0A
+• Size: ${item.size}%0A
+• Qty: ${item.quantity}%0A
+• Price: ₦${item.price.toLocaleString()}%0A
+• Total: ₦${itemTotal.toLocaleString()}%0A`;
+  });
+
+  message += `%0A💰 Subtotal: ₦${subtotal.toLocaleString()}%0A`;
+  message += `🚚 Delivery: ₦2,000%0A`;
+  message += `💵 Grand Total: ₦${(subtotal + 2000).toLocaleString()}%0A`;
+
+  if(note){
+    message += `%0A📝 Note: ${note}`;
+  }
+
+  let whatsappNumber = "2348132030245"; // replace with your WhatsApp number
+  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+
+  // Optional: clear cart after order
+  // localStorage.removeItem("cart");
 }
 
-function removeItem(index){
-  cart.splice(index,1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-renderCart();
+renderOrderSummary();
 </script>
 
 </body>
