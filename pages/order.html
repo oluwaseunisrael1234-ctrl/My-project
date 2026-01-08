@@ -150,26 +150,26 @@ textarea{
                 <div class="foot-cont">
                 <h1>Navigations</h1>
                 <ul>
-                    <li><a href="pages/home.html">Home</a></li>
-                    <li><a href="pages/shop.html">Shop</a></li>
-                    <li><a href="pages/about.html">About</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/home.html">Home</a></li>
+                    <li><a href="../pages/shop.html">Shop</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
                 </ul>
                 </div>
                 <div class="foot-cont">
                 <h1>Quick Links</h1>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                   <li> <a href="pages/shop.html">Shop</a></li>
+                   <li> <a href="../pages/shop.html">Shop</a></li>
                     <li><a href="">Order</a></li>
-                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="../pages/contact.html">Contact Us</a></li>
                 </ul>
                 </div>
                 <div class="foot-cont">
                 <h1>Servics</h1>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/home.html">Home</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
                     <li><a href="#">Block</a></li>
                     <li><a href="#">404 Us</a></li>
                 </ul>
@@ -203,7 +203,7 @@ textarea{
         </footer>
     </section>
 
-<script>
+<script src="../script.js">
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let orderItems = document.getElementById("orderItems");
 let subtotalEl = document.getElementById("subtotal");
@@ -286,6 +286,18 @@ function placeOrder(){
 }
 
 renderOrderSummary();
+
+ // Footer See More/Less Functionality
+  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  const footerText = document.getElementById("footerText");
+
+  seeMoreBtn.addEventListener("click", () => {
+    footerText.classList.toggle("expanded");
+
+    seeMoreBtn.textContent = footerText.classList.contains("expanded")
+      ? "See less"
+      : "See more";
+  });
 </script>
 
 </body>

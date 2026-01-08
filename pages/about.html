@@ -10,27 +10,37 @@
 </head>
 <body>
     <section id="header">
-        <a href="#"><img src="../image/banner/shop-banner.jpg"></a>
-        <div class="#">
-            <nav id="navbar">
-                <ul>
-                    <li><a href="../home.html">Home</a></li>
-                    <li><a href="../pages/shop.html">Shop</a></li>
-                    <li><a  class="active"href="pages/about.html">About Us</a></li>
-                    <li><a href="../pages/contact.html">Contact</a></li>
-                </ul>
-                <form class="search-box">
-                    <input type="search" placeholder="Search for bags..." aria-label="Search">
-                    <!--<i class="fa fa-search"></i>-->
-                </form>
-                <div class=" header-icon">
-                    <a  href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href=""><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-                </div>
-                
-            </nav>
+    <a href="#"><img src="../image/banner/shop-banner.jpg" alt="Velora Bags"></a>
+
+    <div class="m-icon">
+        <i class="fa fa-search"></i>
+        <a  href="../pages/cart.html" ><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+    <!-- MENU TOGGLE (hidden checkbox) -->
+    <input type="checkbox" id="menu-toggle">
+    <!-- HAMBURGER ICON -->
+    <label for="menu-toggle" class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../pages/shop.html">Shop</a></li>
+            <li><a class="active" href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+
+        <form class="search-box">
+            <input type="search" placeholder="Search for bags..." aria-label="Search">
+        </form>
+
+        <div class="header-icon">
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
         </div>
-    </section>
+    </nav>
+</section>
     <section>
         <div class="abt-hero">
             <h1>About Us</h1>
@@ -135,25 +145,25 @@ Today,<br> our brand continues to evolve, driven by creativity, attention to <br
                 <div class="foot-cont">
                 <h1>Navigations</h1>
                 <ul>
-                    <li><a href="pages/home.html">Home</a></li>
-                    <li><a href="pages/shop.html">Shop</a></li>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/home.html">Home</a></li>
+                    <li><a href="../pages/shop.html">Shop</a></li>
+                    <li><a href="../pages/about.html">About Us</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
                 </ul>
                 </div>
                 <div class="foot-cont">
                 <h1>Quick Links</h1>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                   <li> <a href="pages/shop.html">Shop</a></li>
+                   <li> <a href="../pages/shop.html">Shop</a></li>
                     <li><a href="">Order</a></li>
-                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="../pages/contact.html">Contact Us</a></li>
                 </ul>
                 </div>
                 <div class="foot-cont">
                 <h1>Servics</h1>
                 <ul>
-                    <li><a href="pages/home.html">Home</a></li>
+                    <li><a href="../pages/home.html">Home</a></li>
                     <li><a href="pages/contact.html">Contact</a></li>
                     <li><a href="#">Block</a></li>
                     <li><a href="#">404 Us</a></li>
@@ -189,6 +199,18 @@ Today,<br> our brand continues to evolve, driven by creativity, attention to <br
     </section>
 
 
-<script src="../script.js"></script>
+<script src="../script.js">
+     // Footer See More/Less Functionality
+  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  const footerText = document.getElementById("footerText");
+
+  seeMoreBtn.addEventListener("click", () => {
+    footerText.classList.toggle("expanded");
+
+    seeMoreBtn.textContent = footerText.classList.contains("expanded")
+      ? "See less"
+      : "See more";
+  });
+</script>
 </body>
 </html>

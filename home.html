@@ -9,38 +9,38 @@
 </head>
 <body>
     <section id="header">
-        <a href="#"><img src="image/banner/shop-banner.jpg"></a>
+    <a href="#"><img src="image/banner/shop-banner.jpg" alt="Velora Bags"></a>
 
-        <div class="#">
-            <nav id="navbar">
-                <ul>
-                    <li><a class="active" href="home.html">Home</a></li>
-                    <li><a href="../pages/shop.html">Shop</a></li>
-                    <li><a href="../pages/about.html">About Us</a></li>
-                    <li><a href="../pages/contact.html">Contact</a></li>
-                </ul>
-                <form class="search-box">
-                    <input type="search" placeholder="Search for bags..." aria-label="Search">
-                    <!--<i class="fa fa-search"></i>-->
-                </form>
-                <div class=" header-icon">
-                    <a  href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href=""><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-                </div>
-                
-            </nav>
-        </div>
-        <!-- MOBILE MENU -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="home.html">Home</a>
-            <a href="../pages/shop.html">Shop</a>
-            <a href="../pages/about.html">About</a>
-            <a href="../pages/contact.html">Contact</a>
-        </div>
-        
+    <div class="m-icon">
+        <i class="fa fa-search"></i>
+        <a  href="../pages/cart.html" ><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+    <!-- MENU TOGGLE (hidden checkbox) -->
+    <input type="checkbox" id="menu-toggle">
+    <!-- HAMBURGER ICON -->
+    <label for="menu-toggle" class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+    </label>
 
-         
-    </section>
+    <nav id="navbar">
+        <ul>
+            <li><a class="active" href="home.html">Home</a></li>
+            <li><a href="../pages/shop.html">Shop</a></li>
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+
+        <form class="search-box">
+            <input type="search" placeholder="Search for bags..." aria-label="Search">
+        </form>
+
+        <div class="header-icon">
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+        </div>
+    </nav>
+</section>
+
     <section id="hero">
         <div class="hero-text">
             <h1>Elegance You Can <br>Carry Everywhere</h1>
@@ -106,7 +106,7 @@
             </div>
             
     </section>
-    <section class="c-margin2" id="c-margin2">
+    <section class="c-margin2 " id="c-margin2">
         <h1>Top Products</h1>
         <div class="pro-container">
             <div class="pro-display">
