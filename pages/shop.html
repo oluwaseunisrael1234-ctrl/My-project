@@ -35,7 +35,7 @@
         </form>
 
         <div class="header-icon">
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="../pages/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
         </div>
     </nav>
@@ -52,12 +52,12 @@
     <aside class="shop-sidebar">
       <h3>Categories</h3>
       <ul class="category-list">
-        <li><button data-category="all">All Bags</button></li>
-        <li><button data-category="handbag">Hand Bags</button></li>
-        <li><button data-category="backpack">Backpacks</button></li>
-        <li><button data-category="travel">Travel Bags</button></li>
-        <li><button data-category="laptop">Laptop Bags</button></li>
-        <li><button data-category="crossbody">cross body Bags</button></li>
+        <li><a href="#"><button data-category="all">All Bags</button></a></li>
+        <li><a href="#"><button data-category="handbag">Hand Bags</button></a></li>
+        <li><a href="#"><button data-category="backpack">Backpacks</button></a></li>
+        <li><a href="#"><button data-category="travel">Travel Bags</button></a></li>
+        <li><a href="#"><button data-category="laptop">Laptop Bags</button></a></li>
+        <li><a href="#"><button data-category="crossbody">cross body Bags</button></a></li>
       </ul>
 
       <h3>Filter by Price</h3>
@@ -175,6 +175,31 @@
           
         </article>
 
+         <article class="product-card" data-id="5" data-category="handbag">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Classic Tote Bag</h4>
+          <p class="price">₦20,000</p>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
+        </article>
+
+
          <article class="product-card" data-id="4" data-category="handbag">
            <img src="../image/schoolbag/sb2.jpg">
           <h4>Classic Tote Bag</h4>
@@ -198,10 +223,7 @@
   <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
           
         </article>
-
-
-        <article class="product-card" data-id="4" data-category="handbag">
-           <article class="product-card" data-id="4" data-category="handbag">
+           <article class="product-card" data-id="7 data-category="handbag">
            <img src="../image/schoolbag/sb2.jpg">
           <h4>Classic Tote Bag</h4>
           <p class="price">₦20,000</p>
@@ -225,6 +247,31 @@
           
         </article>
 
+         <article class="product-card" data-id="8" data-category="handbag">
+           <img src="../image/schoolbag/sb2.jpg">
+          <h4>Classic Tote Bag</h4>
+          <p class="price">₦20,000</p>
+          <div class="options">
+    <label>Color</label>
+    <select name="color">
+      <option>Black</option>
+      <option>Grey</option>
+    </select>
+
+    <label>Size</label>
+    <select name="size">
+      <option>Standard</option>
+    </select><br>
+
+    <label>Quantity</label>
+    <input type="number" name="qty" min="1" value="1">
+  </div>
+  
+  <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
+          
+        </article>
+
+         <article class="product-card" data-id="9" data-category="handbag">
            <img src="../image/schoolbag/sb2.jpg">
           <h4>Classic Tote Bag</h4>
           <p class="price">₦20,000</p>
@@ -266,8 +313,13 @@
                 <div class="foot-cont">
                     <h1>logo -Velora Bags</h1>
                     
-                    <p>Our brand is dedicated to creating stylish and functional bags <br> that fit seamlessly into modern life. From elegant everyday <br>handbags to durable travel and work bags, we focus on thoughtful <br>design, quality craftsmanship, and timeless appeal. <br>Every bag is made to elevate your look while keeping your essentials <br>organized and secure.</p>
-                <span class="see-more">See more</span>
+                   <p class="footer-text" id="footerText">
+    Velora Bags offers premium-quality handbags crafted with durability, 
+    natural colors, and timeless designs. Our products are made to last 
+    while giving you elegance and comfort every day.
+  </p>
+
+  <span class="see-toggle" id="seeToggle">See more</span>
                   </div>
                 <div class="foot-cont">
                 <h1>Navigations</h1>
@@ -327,7 +379,7 @@
 
 <!-- ================= SCRIPT ================= -->
 
-<script src="../script.js">
+<script>
 function addToCartFromCard(btn){
   const card = btn.closest(".product-card");
 
@@ -406,16 +458,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
  // Footer See More/Less Functionality
-  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  
+  const toggleBtn = document.getElementById("seeToggle");
   const footerText = document.getElementById("footerText");
 
-  seeMoreBtn.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", () => {
     footerText.classList.toggle("expanded");
 
-    seeMoreBtn.textContent = footerText.classList.contains("expanded")
-      ? "See less"
-      : "See more";
+    if (footerText.classList.contains("expanded")) {
+      toggleBtn.textContent = "See less";
+    } else {
+      toggleBtn.textContent = "See more";
+    }
   });
+
+
+
 </script>
 </body>
 </html>

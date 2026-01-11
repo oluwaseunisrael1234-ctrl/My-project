@@ -144,8 +144,13 @@ textarea{
                 <div class="foot-cont">
                     <h1>logo -Velora Bags</h1>
                     
-                    <p>Our brand is dedicated to creating stylish and functional bags <br> that fit seamlessly into modern life. From elegant everyday <br>handbags to durable travel and work bags, we focus on thoughtful <br>design, quality craftsmanship, and timeless appeal. <br>Every bag is made to elevate your look while keeping your essentials <br>organized and secure.</p>
-                <span class="see-more">See more</span>
+                    <p class="footer-text" id="footerText">
+    Velora Bags offers premium-quality handbags crafted with durability, 
+    natural colors, and timeless designs. Our products are made to last 
+    while giving you elegance and comfort every day.
+  </p>
+
+  <span class="see-toggle" id="seeToggle">See more</span>
                   </div>
                 <div class="foot-cont">
                 <h1>Navigations</h1>
@@ -203,7 +208,7 @@ textarea{
         </footer>
     </section>
 
-<script src="../script.js">
+<script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let orderItems = document.getElementById("orderItems");
 let subtotalEl = document.getElementById("subtotal");
@@ -250,11 +255,11 @@ function placeOrder(){
     return;
   }
 
-  let message = `🛒 *NEW ORDER* %0A%0A
-👤 Name: ${name}%0A
-📞 Phone: ${phone}%0A
-📍 Address: ${address}%0A%0A
-📦 *Order Details:*%0A`;
+  let message = `🛒 "Hello Velora Bags👋 I want to order the following products:\n\n";\n\n`;
+  message += `👤 Name: ${name}\n`;
+  message += `📞 Phone: ${phone}\n`;
+  message += `📍 Address: ${address}\n\n`;
+  message += `📦 Order Details:\n\n`;
 
   let subtotal = 0;
 
@@ -262,42 +267,50 @@ function placeOrder(){
     let itemTotal = item.price * item.quantity;
     subtotal += itemTotal;
 
-    message += `%0A${i+1}. ${item.name}%0A
-• Color: ${item.color}%0A
-• Size: ${item.size}%0A
-• Qty: ${item.quantity}%0A
-• Price: ₦${item.price.toLocaleString()}%0A
-• Total: ₦${itemTotal.toLocaleString()}%0A`;
+    message += `${i + 1}. ${item.name}\n`;
+    message += `• Color: ${item.color}\n`;
+    message += `• Size: ${item.size}\n`;
+    message += `• Qty: ${item.quantity}\n`;
+    message += `• Price: ₦${item.price.toLocaleString()}\n`;
+    message += `• Item Total: ₦${itemTotal.toLocaleString()}\n`;
+    message += `📸 Image: ${item.image}\n\n`;
   });
 
-  message += `%0A💰 Subtotal: ₦${subtotal.toLocaleString()}%0A`;
-  message += `🚚 Delivery: ₦2,000%0A`;
-  message += `💵 Grand Total: ₦${(subtotal + 2000).toLocaleString()}%0A`;
+  message += `💰 Subtotal: ₦${subtotal.toLocaleString()}\n`;
+  message += `🚚 Delivery: ₦2,000\n`;
+  message += `💵 Grand Total: ₦${(subtotal + 2000).toLocaleString()}\n`;
 
   if(note){
-    message += `%0A📝 Note: ${note}`;
+    message += `\n📝 Note: ${note}`;
   }
 
-  let whatsappNumber = "2348132030245"; // replace with your WhatsApp number
-  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+  const whatsappNumber = "2348132030245";
+  const encodedMessage = encodeURIComponent(message);
 
-  // Optional: clear cart after order
-  // localStorage.removeItem("cart");
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+    "_blank"
+  );
 }
 
 renderOrderSummary();
 
  // Footer See More/Less Functionality
-  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  
+  const toggleBtn = document.getElementById("seeToggle");
   const footerText = document.getElementById("footerText");
 
-  seeMoreBtn.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", () => {
     footerText.classList.toggle("expanded");
 
-    seeMoreBtn.textContent = footerText.classList.contains("expanded")
-      ? "See less"
-      : "See more";
+    if (footerText.classList.contains("expanded")) {
+      toggleBtn.textContent = "See less";
+    } else {
+      toggleBtn.textContent = "See more";
+    }
   });
+
+
 </script>
 
 </body>

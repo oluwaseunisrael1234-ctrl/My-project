@@ -134,6 +134,7 @@ h1{
 
   <a href="order.html">
     <button class="checkout-btn">Proceed to Checkout</button>
+
   </a>
 </div>
 
@@ -146,8 +147,13 @@ h1{
                 <div class="foot-cont">
                     <h1>logo -Velora Bags</h1>
                     
-                    <p>Our brand is dedicated to creating stylish and functional bags <br> that fit seamlessly into modern life. From elegant everyday <br>handbags to durable travel and work bags, we focus on thoughtful <br>design, quality craftsmanship, and timeless appeal. <br>Every bag is made to elevate your look while keeping your essentials <br>organized and secure.</p>
-                <span class="see-more">See more</span>
+                   <p class="footer-text" id="footerText">
+    Velora Bags offers premium-quality handbags crafted with durability, 
+    natural colors, and timeless designs. Our products are made to last 
+    while giving you elegance and comfort every day.
+  </p>
+
+  <span class="see-toggle" id="seeToggle">See more</span>
                   </div>
                 <div class="foot-cont">
                 <h1>Navigations</h1>
@@ -205,7 +211,7 @@ h1{
         </footer>
     </section>
 
-<script src="../script.js">
+<script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let cartItems = document.getElementById("cartItems");
 let subtotalEl = document.getElementById("subtotal");
@@ -269,17 +275,24 @@ function removeItem(index){
 renderCart();
 
 
+
+
  // Footer See More/Less Functionality
-  const seeMoreBtn = document.getElementById("seeMoreBtn");
+
+  const toggleBtn = document.getElementById("seeToggle");
   const footerText = document.getElementById("footerText");
 
-  seeMoreBtn.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", () => {
     footerText.classList.toggle("expanded");
 
-    seeMoreBtn.textContent = footerText.classList.contains("expanded")
-      ? "See less"
-      : "See more";
+    if (footerText.classList.contains("expanded")) {
+      toggleBtn.textContent = "See less";
+    } else {
+      toggleBtn.textContent = "See more";
+    }
   });
+
+
 </script>
 
 </body>

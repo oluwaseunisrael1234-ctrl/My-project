@@ -313,17 +313,20 @@
     </section>
     
     <script src="../script.js">
-    // Footer See More/Less Functionality
-  const seeMoreBtn = document.getElementById("seeMoreBtn");
+
+  const toggleBtn = document.getElementById("seeToggle");
   const footerText = document.getElementById("footerText");
 
-  seeMoreBtn.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", () => {
     footerText.classList.toggle("expanded");
 
-    seeMoreBtn.textContent = footerText.classList.contains("expanded")
-      ? "See less"
-      : "See more";
+    if (footerText.classList.contains("expanded")) {
+      toggleBtn.textContent = "See less";
+    } else {
+      toggleBtn.textContent = "See more";
+    }
   });
+
 
 
     </script>
