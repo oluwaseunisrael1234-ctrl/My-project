@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velora Bags-contact page</title>
     <link rel="stylesheet" href="../style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
 </head>
 <body>
     <section id="header">
-    <a href="#"><img src="../image/banner/shop-banner.jpg" alt="Velora Bags"></a>
+    <a href="#"><img src="../image/banner/logo.png" alt="Velora Bags"></a>
 
     <div class="m-icon">
         <i class="fa fa-search"></i>
@@ -47,7 +49,7 @@
     </section>
     <section>
         <div class="cnt-form-container">
-            <div class="cnt-form">
+            <div class="cnt-form" data-aos="fade-right">
                 <h2>Get In Touch</h2>
                 <input type="text" name="text" id="text" placeholder="Enter your name"><br>
                 <input type="email" name="email" id="email" placeholder="Enter your email"><br>
@@ -55,7 +57,7 @@
                 <textarea name="textarea" id="" placeholder="Type here..."></textarea><br>
                 <button type="submit">Send Now</button>
             </div>
-             <div class="cnt-form">
+             <div class="cnt-form" data-aos="fade-left">
                 <h3>Contact Information</h3>
                 <p>Get in touch with us for product inquiries, orders, or support. <br>We’re committed to providing fast responses and excellent <br>customer service.</p>
                     <div class="cnt-info-container">
@@ -84,21 +86,21 @@
             </div>
         </div>
     </section>
-    <section class="cnt-display-cont">
+    <section class="cnt-display-cont" data-aos="zoom-in">
         <div class="cnt-display">
             <h2>Lets Talk</h2>
             <p>We love challenges big and small - what's yours?</p>
             <button type="submit">Get Started</button>
         </div>
     </section>
-    <section>
+    <section data-aos="zoom-out">
         <div class="cnt-img-displayer">
             <img src="../image/schoolbag/sb4.jpg">
             <img src="../image/schoolbag/sb6.jpg">
         </div>
     </section>
     <section>
-        <div class="cnt-map">
+        <div class="cnt-map" data-aos="fade-up">
             <iframe
                 src="https://www.google.com/maps?q=Akure%20Ondo%20Road&output=embed"
                 width="100%"
@@ -179,6 +181,17 @@
             </div>
         </footer>
     </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out'
+  });
+</script>
+
 
     <script src="../script.js">
 

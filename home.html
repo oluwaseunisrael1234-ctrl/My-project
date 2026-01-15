@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velora Bags-Home page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <section id="header">
-    <a href="#"><img src="image/banner/shop-banner.jpg" alt="Velora Bags"></a>
+    <a href="#"><img src="image/banner/logo.png" alt="Velora Bags"></a>
 
     <div class="m-icon">
         <i class="fa fa-search"></i>
@@ -53,7 +54,7 @@
             </video>
         </div>
     </section>
-    <section id="feature-div">
+    <section id="feature-div" data-aos="fade-up">
         <h1>Feature Products</h1>
         <p class="para">Handpicked products that reflect elegance qualityand modern design</p>
         <div class="feature-container">
@@ -93,20 +94,20 @@
         </div>
     </section>
 
-    <section class="c-margin1">
+    <section class="c-margin1" data-aos="zoom-in">
         <div class="view-container">
             <div class="view">
                 <div class="view-img">
                     <img src="image/schoolbag/sb7.png">
                     <div class="view-more">
                         <h3>schoolbag</h3>
-                        <a href="#">View in Shop</a>
+                        <a href="../pages/shop.html">View in Shop</a>
                     </div>
                 </div>
             </div>
             
     </section>
-    <section class="c-margin2 " id="c-margin2">
+    <section class="c-margin2 " id="c-margin2" data-aos="fade-up">
         <h1>Top Products</h1>
         <div class="pro-container">
             <div class="pro-display">
@@ -206,7 +207,7 @@
             </div>
         </div>
     </section>
-    <section class="c-margin2" id="newsletter">
+    <section class="c-margin2" id="newsletter" data-aos="fade-down">
         <div class="newsletter-container">
             <h1>Sign-up for newsletter</h1>
         <input type="email" name="email" id="email" placeholder="Enter your email...">
@@ -214,7 +215,7 @@
         </div>
     </section>
 
-    <section class="c-margin2"> 
+    <section class="c-margin2" data-aos="fade-right"> 
         <div class="img-container">
             <div class="img-displayer">
                  <img src="image/handbag/hb4.jpg" alt="">
@@ -224,7 +225,7 @@
             </div>
         </div>
     </section>
-    <section class="c-margin2" id="test-cont">
+    <section class="c-margin2" id="test-cont" data-aos="zoom-in">
         <h1>What our beautiful customer's says</h1>
         <div class="tesimonial">
             <div class="testimonial-container">
@@ -312,6 +313,16 @@
         </footer>
     </section>
     
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out'
+  });
+</script>
+
     <script src="../script.js">
 
   const toggleBtn = document.getElementById("seeToggle");
@@ -326,6 +337,8 @@
       toggleBtn.textContent = "See more";
     }
   });
+
+  
 
 
 
