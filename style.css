@@ -1133,8 +1133,9 @@ body {
     border: 1px solid;
     width: 460px;
     height: 330px;
-    background: bisque;
+     background: rgb(153, 126, 89);
     width: 100%;
+    margin-left: -15px;
 }
 #c-margin2 h1 {
     font-size: 3.1rem;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop | Velora Bags</title>
+  <title>Shop-travelbag | Velora Bags</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
@@ -36,7 +36,6 @@
 
         <div class="header-icon">
             <a href="../pages/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-            
         </div>
     </nav>
 </section>
@@ -78,8 +77,8 @@
 
   <!-- Products Grid -->
   <div class="products-grid" id="productsGrid">
-        <article class="product-card" data-id="1" data-category="handbag">
-          <img src="../image/schoolbag/sb6.jpg">
+        <article class="product-card" data-id="1" data-category="travelbag">
+          <img src="../image/travelbag/tb1.jpg">
           <h4>Unisex school bag</h4>
           <p class="price">₦35,000</p>
     <div class="options">
@@ -103,8 +102,8 @@
         </article>
 
         <article class="product-card" data-id="2" data-category="backpack">
-           <img src="../image/travelbag/tb9.jpg">
-          <h4>Leather handbag</h4>
+           <img src="../image/travelbag/tb2.jpg">
+          <h4>Leather travelbag</h4>
           <p class="price">₦18,000</p>
           <div class="options">
     <label>Color</label>
@@ -127,7 +126,7 @@
         </article>
 
         <article class="product-card" data-id="3" data-category="travel">
-           <img src="../image/laptopbag/lb7.jpg">
+           <img src="../image/travelbag/tb3.jpg">
           <h4>Portable bible pourse</h4>
           <p class="price">₦35,000</p>
           <div class="options">
@@ -149,8 +148,8 @@
   <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
           
         </article>
-         <article class="product-card" data-id="4" data-category="handbag">
-           <img src="../image/handbag/hb20.jpg">
+         <article class="product-card" data-id="4" data-category="travelbag">
+           <img src="../image/travelbag/tb4.jpg">
           <h4>Classic hand Bag</h4>
           <p class="price">₦20,000</p>
           <div class="options">
@@ -173,7 +172,7 @@
           
         </article>
 
-         <article class="product-card" data-id="5" data-category="handbag">
+         <article class="product-card" data-id="5" data-category="travelbag">
            <img src="../image/travelbag/tb6.jpg">
           <h4>Classic travel Bag</h4>
           <p class="price">₦20,000</p>
@@ -199,8 +198,8 @@
         </article>
 
 
-         <article class="product-card" data-id="4" data-category="handbag">
-           <img src="../image/schoolbag/sb8.jpg">
+         <article class="product-card" data-id="4" data-category="travelbag">
+           <img src="../image/travelbag/tb7.jpg">
           <h4>Portable laptop Bag</h4>
           <p class="price">₦20,000</p>
           <div class="options">
@@ -223,8 +222,8 @@
   <button class="add-btn" onclick="addToCartFromCard(this)"> Add to Cart</button>
           
         </article>
-           <article class="product-card" data-id="7 data-category="handbag">
-           <img src="../image/handbag/hb17.jpg">
+           <article class="product-card" data-id="7 data-category="travelbag">
+           <img src="../image/travelbag/tb11.jpg">
           <h4>Classic hand Bag</h4>
           <p class="price">₦25,670</p>
           <div class="options">
@@ -247,8 +246,8 @@
           
         </article>
 
-         <article class="product-card" data-id="8" data-category="handbag">
-           <img src="../image/laptopbag/lb8.jpg">
+         <article class="product-card" data-id="8" data-category="travelbag">
+           <img src="../image/travelbag/tb10.jpg">
           <h4>Classic Laptop Bag</h4>
           <p class="price">₦12,100</p>
           <div class="options">
@@ -271,8 +270,8 @@
           
         </article>
 
-         <article class="product-card" data-id="9" data-category="handbag">
-           <img src="../image/schoolbag/sb5.jpg">
+         <article class="product-card" data-id="9" data-category="travelbag">
+           <img src="../image/travelbag/tb12.jpg">
           <h4>Unisex school Bag</h4>
           <p class="price">₦19,910</p>
           <div class="options">
@@ -297,12 +296,7 @@
 
   </div>
 
-  <!-- Pagination -->
-  <div class="pagination">
-    <button id="prevPage">Previous</button>
-    <span id="pageInfo">Page 1</span>
-    <button id="nextPage">Next</button>
-  </div>
+
 
 </section>
 
@@ -314,7 +308,7 @@
                     <h1>logo -Velora Bags</h1>
                     
                    <p class="footer-text" id="footerText">
-    Velora Bags offers premium-quality handbags crafted with durability, 
+    Velora Bags offers premium-quality travelbags crafted with durability, 
     natural colors, and timeless designs. Our products are made to last 
     while giving you elegance and comfort every day.
   </p>
@@ -375,11 +369,9 @@
                 <p>© 2026 Velora Bags. All Rights Reserved.</p>
             </div>
         </footer>
-    </section>
 
-<!-- ================= SCRIPT ================= -->
 
-<script>
+        <script>
 function addToCartFromCard(btn){
   const card = btn.closest(".product-card");
 
@@ -477,3 +469,4 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </body>
 </html>
+
