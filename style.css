@@ -1046,8 +1046,11 @@ body {
  /* ---------- GENERAL ---------- */
   body {
     overflow-x: hidden;
+    padding: 15px;
   }
-
+#header{
+    width: 100%;
+}
   section {
     padding: 40px 16px;
   }
