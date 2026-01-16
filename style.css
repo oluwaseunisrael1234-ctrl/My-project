@@ -100,18 +100,17 @@
 
   .menu-icon {
     display: block;
-    padding: 0 30px;
     
   }
   .menu-icon i{
-    margin-left: -50px;
+    margin-left: -70px;
     font-size: 24px;
     cursor: pointer;
   }
  
 #header{
-  padding: 0 20px;
-}
+  padding: 0;
+} 
   #navbar {
     position: absolute;
     top: 100%;
@@ -1042,11 +1041,13 @@ body {
 
 /*responsiveness*/
 /*home page*/
+
+    
 @media (max-width: 768px) {
  /* ---------- GENERAL ---------- */
   body {
-    overflow-x: hidden;
-    padding: 15px;
+   
+    width: 100%;
   }
 #header{
     width: 100%;
@@ -1134,11 +1135,11 @@ body {
     justify-content: space-evenly;
     align-items: center;
     border: 1px solid;
-    width: 460px;
+    width: 89%;
     height: 330px;
      background: rgb(153, 126, 89);
-    width: 100%;
-    margin-left: -15px;
+  
+    margin-left: -50px;
 }
 #c-margin2 h1 {
     font-size: 3.1rem;
