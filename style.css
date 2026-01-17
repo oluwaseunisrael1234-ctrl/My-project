@@ -175,7 +175,7 @@
 
 
 .header-icon{
-    padding: 20px;
+    padding: 2px;
     cursor: pointer;
     font-size: 20px;
 }
@@ -1427,23 +1427,19 @@ body {
 
 }
 
-@media (max-width: 500px){
+@media (max-width: 450px){
   #header{
-    max-width: 100%;
+    max-width: 70%;
 
   }
   .m-icon {
-    margin-left: 170px;
-    padding: 0 10px;
+    margin-left: 140px;
+    padding: 0 15px;
     font-size: 18px;
     display: flex;
     gap: 10px;
-  }
-   .m-icon i{
-     cursor: pointer;
-   }
 }
-
+}
   
 
 
