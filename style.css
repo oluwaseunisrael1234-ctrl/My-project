@@ -151,7 +151,7 @@
      }
   .m-icon {
     margin-left: 220px;
-    padding: 0 35px;
+    padding: 0 10px;
     font-size: 18px;
     display: flex;
     gap: 10px;
@@ -1418,12 +1418,33 @@ body {
     margin-top: -70px;
 }
 
-
+.fa-cart {
+    font-size: 18px;
+    width: 90%;
+}
 
 /*shop page*/
 
 }
 
+@media (max-width: 500px){
+  #header{
+    max-width: 100%;
+
+  }
+  .m-icon {
+    margin-left: 170px;
+    padding: 0 10px;
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+  }
+   .m-icon i{
+     cursor: pointer;
+   }
+}
+
+  
 
 
 
